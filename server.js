@@ -3,7 +3,7 @@ const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 
 const app = express();
-
+const mongoAtlasUri ="mongodb+srv://mixser:Mixser021082@cluster0.e7chkb1.mongodb.net/apiddc?retryWrites=true&w=majority";
 var corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -20,7 +20,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(mongoAtlasUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
